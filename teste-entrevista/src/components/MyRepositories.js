@@ -29,7 +29,7 @@ const MyRepositories = () => {
 
   return (
     <div>
-      <h2 className="text-2xl font-bold mb-4">Meus Repositórios</h2>
+      <h2 className="text-2xl font-bold mb-4">My Repositories</h2>
       <ul className="space-y-2">
         {repositories.map((repo) => (
           <li key={repo.id}>
@@ -47,3 +47,4 @@ const MyRepositories = () => {
 };
 
 export default MyRepositories;
+
