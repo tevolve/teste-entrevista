@@ -23,4 +23,3 @@ export const fetchContributors = async (owner, name) => {
   if (!response.ok) throw new Error('Failed to fetch contributors');
   return response.json();
 };
-
