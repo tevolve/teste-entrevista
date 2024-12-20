@@ -10,11 +10,14 @@ const MyRepositories = () => {
   useEffect(() => {
     const fetchRepos = async () => {
       try {
-        const data = await fetchMyRepositories('your-github-username');
+        console.log('Fetching repositories...');
+        const data = await fetchMyRepositories('tevolve'); // Substitua pelo seu usuário do GitHub
+        console.log('Repositories fetched:', data);
         setRepositories(data);
-        setLoading(false);
       } catch (err) {
+        console.error('Error fetching repositories:', err);
         setError(err.message);
+      } finally {
         setLoading(false);
       }
     };
@@ -26,11 +29,14 @@ const MyRepositories = () => {
 
   return (
     <div>
-      <h2 className="text-2xl font-bold mb-4">My Repositories</h2>
+      <h2 className="text-2xl font-bold mb-4">Meus Repositórios</h2>
       <ul className="space-y-2">
-        {repositories.map(repo => (
+        {repositories.map((repo) => (
           <li key={repo.id}>
-            <Link to={`/repository/${repo.owner.login}/${repo.name}`} className="text-blue-500 hover:text-blue-700">
+            <Link
+              to={`/repository/${repo.owner.login}/${repo.name}`}
+              className="text-blue-500 hover:text-blue-700"
+            >
               {repo.name}
             </Link>
           </li>
